@@ -1,4 +1,7 @@
-﻿############################################################################################
+##### Automate the building of Windows Print queues on print servers. The printer must be online.
+#By Alex Guarino 01/14/2016
+
+############################################################################################
 #Launch an elevated PowerShell widow
 
 #Get the ID and security principal of the current user account
@@ -48,8 +51,8 @@ $h.ui.rawui.set_windowsize($win)
 #Script
 ############################################################################################
 #Specifying Windows Print Servers and available drivers
-$PrintServers = ("tec-v-prntsrv01", "tec-v-prntsrv02", "tec-v-prntsrv03", "tec-v-prntsrv04")
-$PrintServerDrivers = Get-PrinterDriver -ComputerName tec-v-prntsrv01 -PrinterEnvironment "Windows x64" | sort Name | select -ExpandProperty name
+$PrintServers = ("<PrintServerHostName>", "<PrintServerHostName>")
+$PrintServerDrivers = Get-PrinterDriver -ComputerName "AnySinglePrintServerHostName" -PrinterEnvironment "Windows x64" | sort Name | select -ExpandProperty name
 
 ############################################################################################
 #Load the .Net Assembly for my PopUp boxes
